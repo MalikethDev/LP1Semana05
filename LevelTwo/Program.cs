@@ -1,14 +1,17 @@
 ﻿using System;
+using Spectre.Console;
 
 class Program
 {
     private static void Main(string[] args)
     {
-        string imagePath = args[0]; // First argument: Image file path
-        int width = int.Parse(args[1]); // Second argument: Width in characters
+        // Load the image
+        CanvasImage image = new CanvasImage("tux.jpg");
 
-        // Display the image file path and width
-        Console.WriteLine($"Image file: {imagePath}");
-        Console.WriteLine($"Width in characters: {width}");
+        // Set the max width of the image
+        image.MaxWidth(20);
+
+        // Render the image to the console
+        AnsiConsole.Write(image);
     }
 }
